@@ -11,3 +11,22 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+alias ls="ls -GFh"
+alias l="ls" 
+alias ll="ls -l" 
+alias la="ls -a"
+alias grep="grep -i --color=auto"
+alias vim="~/usr/vim/bin/vim"
+alias vi="vim"
+
+export JAVA_HOME=`/usr/libexec/java_home`
+export ANDROID_HOME=~/usr/android/sdk
+export GOROOT=~/usr/go
+export GOPATH=~
+export PATH=$PATH:~/bin:$ANDROID_HOME/platform-tools:$GOROOT/bin
+
+export LC_CTYPE=$LANG
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/private" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/private"
+fi
