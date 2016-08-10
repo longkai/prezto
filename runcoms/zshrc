@@ -11,21 +11,31 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-alias ls="ls -GFh"
+if [[ `uname` == 'Linux' ]]
+then
+  alias ls="ls -Fh --color=auto"
+else
+  alias ls="ls -GFh"
+  # in Linux container, we have no macvim
+  # use macvim as a whole
+  MACVIM=/Applications/MacVim.app/Contents/MacOS/Vim
+  alias vim="$MACVIM"
+  alias vi="vim"
+  export VISUAL=$MACVIM
+  export EDITOR=$MACVIM
+  unset MACVIM
+
+  #export JAVA_HOME=`/usr/libexec/java_home`
+  #export ANDROID_HOME=~/usr/android/sdk
+  export GOROOT=/usr/local/opt/go/libexec
+  export GOPATH=/Users/longkai
+  export PATH=$PATH:~/bin:$ANDROID_HOME/platform-tools:$GOROOT/bin
+fi
+
 alias l="ls" 
 alias ll="ls -l" 
 alias la="ls -a"
 alias grep="grep -i --color=auto"
-alias vim="~/usr/vim/bin/vim"
-alias vi="vim"
-
-export JAVA_HOME=`/usr/libexec/java_home`
-export ANDROID_HOME=~/usr/android/sdk
-export GOROOT=~/usr/go
-export GOPATH=~
-export PATH=$PATH:~/bin:$ANDROID_HOME/platform-tools:$GOROOT/bin
-
-export LC_CTYPE=$LANG
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/private" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/private"
