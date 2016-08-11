@@ -15,8 +15,8 @@ if [[ `uname` == 'Linux' ]]
 then
   export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
   alias ls="ls -Fh --color=auto"
-  export PATH=$PATH:/usr/local/go/bin
-  export GOROOT=$HOME
+  export GOROOT=/usr/local/go
+  export PATH=$PATH:$GOROOT/bin
 else
   alias ls="ls -GFh"
   # in Linux container, we have no macvim
@@ -30,10 +30,10 @@ else
   #export JAVA_HOME=`/usr/libexec/java_home`
   #export ANDROID_HOME=~/usr/android/sdk
   export GOROOT=/usr/local/opt/go/libexec
-  export GOPATH=/Users/longkai
   export PATH=$PATH:~/bin:$ANDROID_HOME/platform-tools:$GOROOT/bin
 fi
 
+export GOPATH=~
 export TERM=xterm-256color
 
 alias vi="vim"
