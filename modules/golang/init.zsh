@@ -110,6 +110,7 @@ __go_tool_complete() {
         "-v[print test output]" \
         "-x[print the commands]" \
         "-short[use short mode]" \
+        "-cover[coverage]" \
         "-parallel[number of parallel tests]:number" \
         "-cpu[values of GOMAXPROCS to use]:number list" \
         "-run[run tests and examples matching regexp]:regexp" \
@@ -117,6 +118,7 @@ __go_tool_complete() {
         "-benchmem[print memory allocation stats]" \
         "-benchtime[run each benchmark until taking this long]:duration" \
         "-blockprofile[write goroutine blocking profile to file]:file" \
+        "-coverprofile[write coverage profile to file]:file" \
         "-blockprofilerate[set sampling rate of goroutine blocking profile]:number" \
         "-timeout[kill test after that duration]:duration" \
         "-cpuprofile[write CPU profile to file]:file:_files" \
@@ -179,5 +181,15 @@ __go_tool_complete() {
 
 compdef __go_tool_complete go
 
-# aliases
-alias gfa='go fmt . ./...'
+# aliases: go<~>
+alias gob='go build'
+alias goc='go clean'
+alias god='go doc'
+alias gof='go fmt'
+alias gofa='go fmt . ./...'
+alias gog='go get'
+alias goi='go install'
+alias gol='go list'
+alias gor='go run'
+alias got='go test'
+alias gov='go vet'

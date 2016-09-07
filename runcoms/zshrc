@@ -27,10 +27,11 @@ else
   export EDITOR=$MACVIM
   unset MACVIM
 
-  #export JAVA_HOME=`/usr/libexec/java_home`
-  #export ANDROID_HOME=~/usr/android/sdk
+  export JAVA_HOME=`/usr/libexec/java_home`
+  export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
   export GOROOT=/usr/local/opt/go/libexec
   export PATH=$PATH:~/bin:$ANDROID_HOME/platform-tools:$GOROOT/bin
+  export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152
 fi
 
 export GOPATH=~
@@ -41,6 +42,9 @@ alias l="ls"
 alias ll="ls -l" 
 alias la="ls -a"
 alias grep="grep -i --color=auto"
+
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/private" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/private"
