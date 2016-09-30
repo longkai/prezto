@@ -30,7 +30,7 @@ else
   export JAVA_HOME=`/usr/libexec/java_home`
   export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
   export GOROOT=/usr/local/opt/go/libexec
-  export PATH=$PATH:~/bin:$ANDROID_HOME/platform-tools:$GOROOT/bin
+  export PATH=$PATH:~/bin:$GOROOT/bin
   export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152
 fi
 
