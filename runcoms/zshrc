@@ -15,27 +15,27 @@ if [[ `uname` == 'Linux' ]]
 then
   export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
   alias ls="ls -Fh --color=auto"
-  export GOROOT=/usr/local/go
-  export PATH=$PATH:$GOROOT/bin
 else
   alias ls="ls -GFh"
+  alias rpi="ssh pi@192.168.1.233"
+
   # in Linux container, we have no macvim
   # use macvim as a whole
-  MACVIM=/Applications/MacVim.app/Contents/MacOS/Vim
-  alias vim="$MACVIM"
-  export VISUAL=$MACVIM
-  export EDITOR=$MACVIM
-  unset MACVIM
+  MacVim=/Applications/MacVim.app/Contents/MacOS/Vim
+  alias vim=$MacVim
+  export VISUAL=$MacVim;EDITOR=$MacVim
+  unset MacVim
 
-  export JAVA_HOME=`/usr/libexec/java_home`
-  export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
   export GOROOT=/usr/local/opt/go/libexec
-  export PATH=$PATH:~/bin:$GOROOT/bin
+  export JAVA_HOME=`/usr/libexec/java_home`
+  #export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
   export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152
 fi
 
 export GOPATH=~
 export TERM=xterm-256color
+export src=~/src/github.com/longkai
+export PATH=~/bin:$GOROOT/bin:$PATH
 
 alias vi="vim"
 alias l="ls" 
