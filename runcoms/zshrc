@@ -13,6 +13,7 @@ fi
 # if any param presents, just unset all proxies.
 function proxy() {
   if [ $# -eq 0 ]; then
+    echo "Proxy is ready."
     export https_proxy=http://localhost:8123; export http_proxy=http://localhost:8123
   else
     echo "Proxy is unset."
@@ -39,7 +40,6 @@ else
   export GOROOT=/usr/local/opt/go/libexec
   export JAVA_HOME=`/usr/libexec/java_home`
   #export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
-  proxy
 fi
 
 export GOPATH=~
